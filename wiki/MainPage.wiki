@@ -1,0 +1,4 @@
+#summary Main page.
+#labels Featured
+
+== Main page ==
