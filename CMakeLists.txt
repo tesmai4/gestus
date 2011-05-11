@@ -84,8 +84,8 @@ ENDIF()
 
 # Include directories.
 INCLUDE_DIRECTORIES(
-  ${ROOT_DIR}/prj
-  ${ROOT_DIR}/prj.thirdparty)
+  ${root_dir}/prj.sandbox
+  ${root_dir}/prj.thirdparty)
 
 # Compiler specific flags.
 IF( MSVC )
@@ -95,7 +95,7 @@ IF( MSVC )
   IF( ${configuration} MATCHES "debug" )
     SET( CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "/LDd /MDd" )
   ELSE()
-    SET( CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "/LD  /MD" )
+    SET( CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "/LD /MD" )
   ENDIF()
 
   SET( CMAKE_CXX_FLAGS ${CMAKE_C_FLAGS} )
@@ -120,5 +120,5 @@ ENDIF()
 
 # -----------------------------------------------------------------------
 # Add project collections to build tree.
-ADD_SUBDIRECTORY( prj )
+ADD_SUBDIRECTORY( prj.sandbox )
 # -----------------------------------------------------------------------
