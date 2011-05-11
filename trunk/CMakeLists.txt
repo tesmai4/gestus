@@ -85,7 +85,7 @@ ENDIF()
 # Include directories.
 INCLUDE_DIRECTORIES(
   ${ROOT_DIR}/prj
-  ${ROOT_DIR}/prj.third_party)
+  ${ROOT_DIR}/prj.thirdparty)
 
 # Compiler specific flags.
 IF( MSVC )
