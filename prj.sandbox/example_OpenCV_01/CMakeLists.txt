@@ -1,6 +1,13 @@
 PROJECT( example_OpenCV_01 )
 
-SET( SOURCES src/example_OpenCV_01.cpp )
+SET( SOURCES 
+	src/example_OpenCV_01.cpp 
+	src/example_OpenCV_01_1.cpp 
+	src/example_OpenCV_01_2.cpp 
+	src/example_OpenCV_01_3.cpp 
+	src/example_OpenCV_01_4.cpp 
+	src/example_OpenCV_01_5.cpp 
+)
 
 IF( MSVC )
   SET( LIBRARIES cv210 highgui210 cxcore210 )
