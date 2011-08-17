@@ -38,7 +38,7 @@ static void detectFaces( IplImage *img )
 int main2( int argc, char** argv )
 {
   IplImage  *img;
-  const char *kDefaultImageName = "\\projects\\gestus\\testdata\\myfingers.jpg";
+  const char *kDefaultImageName = "..\\..\\gestus\\testdata\\myfingers.jpg";
   const char *inputImageName = NULL;
   
   if (argc < 2) {
@@ -49,7 +49,7 @@ int main2( int argc, char** argv )
   }
 
   char      *filename = 
-		"\\projects\\gestus\\testdata\\"
+		"..\\..\\gestus\\testdata\\"
 		"haarcascade_frontalface_alt.xml";
 
   cascade = ( CvHaarClassifierCascade* )cvLoad( filename, 0, 0, 0 );
