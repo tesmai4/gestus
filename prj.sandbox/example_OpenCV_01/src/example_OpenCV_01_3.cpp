@@ -45,7 +45,7 @@ int main3( int argc, char** argv )
     IplImage  *frame=0;
     int       key=0;
     char      *filename = 
-		"\\projects\\gestus\\testdata\\"
+		"..\\..\\gestus\\testdata\\"
 		"haarcascade_frontalface_alt.xml";
  
     /* load the classifier

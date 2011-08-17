@@ -6,7 +6,7 @@
 #include <opencv/highgui.h>
 
 int main1(int argc, char **argv) {
-  const char *kDefaultImageName = "\\projects\\gestus\\testdata\\myfingers.jpg";
+  const char *kDefaultImageName = "..\\..\\gestus\\testdata\\myfingers.jpg";
   const char *inputImageName = NULL;
   
   if (argc < 2) {
