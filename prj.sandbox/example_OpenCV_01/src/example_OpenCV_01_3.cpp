@@ -7,7 +7,10 @@
 #include <stdio.h>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
- 
+
+#include <string>
+using namespace std;
+
 static CvHaarClassifierCascade *cascade;
 static CvMemStorage            *storage;
  
@@ -38,57 +41,74 @@ static void detectFaces( IplImage *img )
     /* display video */
     cvShowImage( "video", img );
 }
- 
+
+static string testdata( const char* relative_file_name )
+{
+	char buf[1024]={0};
+	GetModuleFileName(NULL, buf, sizeof(buf)-1);
+	return string(buf) + "\\..\\..\\..\\testdata\\" + string(relative_file_name);
+}
+
+
 int main3( int argc, char** argv )
 {
     CvCapture *capture=0;
     IplImage  *frame=0;
     int       key=0;
-    char      *filename = 
-		"..\\..\\gestus\\testdata\\"
-		"haarcascade_frontalface_alt.xml";
+    string filename = testdata("haarcascade_frontalface_alt.xml");
+		//////"..\\..\\gestus\\testdata\\"
+		//////"haarcascade_frontalface_alt.xml";
  
     /* load the classifier
        note that I put the file in the same directory with
        this code */
-    cascade = ( CvHaarClassifierCascade* )cvLoad( filename, 0, 0, 0 );
- 
+	cascade = ( CvHaarClassifierCascade* )cvLoad( filename.c_str(), 0, 0, 0 );
+    if (!cascade)
+	  printf("\nCan't load cascade file '%s'", filename);
+
     /* setup memory buffer; needed by the face detector */
     storage = cvCreateMemStorage( 0 );
- 
+   if (!storage)
+	  printf("\nCan't cvCreateMemStorage()");
+
     /* initialize camera */
     capture = cvCaptureFromCAM( 0 );
  
     /* always check */
-    assert( cascade && storage && capture );
- 
-    /* create a window */
-    cvNamedWindow( "video", 1 );
- 
-    while( key <= 0 ) // key != 'q'
+    if ( cascade && storage && capture )
 	{
-        /* get a frame */
-        frame = cvQueryFrame( capture );
- 
-        /* always check */
-        if( !frame ) break;
- 
-        /* 'fix' frame */
-        //////cvFlip( frame, frame, -1 );
-        //////frame->origin = 0;
- 
-        /* detect faces and display video */
-        detectFaces( frame );
- 
-        /* quit if user press 'q' */
-        key = cvWaitKey( 10 );
-    }
+		/* create a window */
+		cvNamedWindow( "video", 1 );
+	 
+		while( key <= 0 ) // key != 'q'
+		{
+			/* get a frame */
+			frame = cvQueryFrame( capture );
+	 
+			/* always check */
+			if( !frame ) break;
+	 
+			/* 'fix' frame */
+			//////cvFlip( frame, frame, -1 );
+			//////frame->origin = 0;
+	 
+			/* detect faces and display video */
+			detectFaces( frame );
+	 
+			/* quit if user press 'q' */
+			key = cvWaitKey( 10 );
+		}
+
+		cvDestroyWindow( "video" );
+	}
  
     /* free memory */
-    cvReleaseCapture( &capture );
-    cvDestroyWindow( "video" );
-    cvReleaseHaarClassifierCascade( &cascade );
-    cvReleaseMemStorage( &storage );
+    if (capture) 
+		cvReleaseCapture( &capture );
+    if (cascade)
+		cvReleaseHaarClassifierCascade( &cascade );
+    if (storage)
+		cvReleaseMemStorage( &storage );
  
     return 0;
 }
