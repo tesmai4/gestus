@@ -4,9 +4,18 @@
 
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
+#include <string>
+using namespace std;
 
 static CvHaarClassifierCascade * cascade=NULL;
 static CvMemStorage            * storage=NULL;
+
+static string testdata( const char* relative_file_name )
+{
+	char buf[1024]={0};
+	GetModuleFileName(NULL, buf, sizeof(buf)-1);
+	return string(buf) + "\\..\\..\\..\\testdata\\" + string(relative_file_name);
+}
 
 static void detectFaces( IplImage *img )
 {
@@ -38,8 +47,8 @@ static void detectFaces( IplImage *img )
 int main2( int argc, char** argv )
 {
   IplImage  *img;
-  const char *kDefaultImageName = "..\\..\\gestus\\testdata\\myfingers.jpg";
-  const char *inputImageName = NULL;
+  string kDefaultImageName = testdata( "myfingers.jpg" );
+  string inputImageName;
   
   if (argc < 2) {
     printf("Using default image file name %s.\n", kDefaultImageName);
@@ -48,24 +57,35 @@ int main2( int argc, char** argv )
     inputImageName = argv[1];
   }
 
-  char      *filename = 
-		"..\\..\\gestus\\testdata\\"
-		"haarcascade_frontalface_alt.xml";
+   string filename = testdata( "haarcascade_frontalface_alt.xml" );
 
-  cascade = ( CvHaarClassifierCascade* )cvLoad( filename, 0, 0, 0 );
+  cascade = ( CvHaarClassifierCascade* )cvLoad( filename.c_str(), 0, 0, 0 );
+  if (!cascade)
+	  printf("\nCan't load cascade file '%s'", filename.c_str());
+
   storage = cvCreateMemStorage( 0 );
+  if (!storage)
+	  printf("\nCan't cvCreateMemStorage()");
 
-  img     = cvLoadImage( inputImageName, 1 ); 
 
-  assert( cascade && storage && img );
+  img     = cvLoadImage( inputImageName.c_str(), 1 ); 
+  if (!img)
+	  printf("\nCan't load image file '%s'", inputImageName.c_str());
 
-  cvNamedWindow( "video", 1 );
-  detectFaces( img );
-  cvWaitKey( 0 );
-  cvDestroyWindow( "video" );
-  cvReleaseImage( &img );
-  cvReleaseHaarClassifierCascade( &cascade );
-  cvReleaseMemStorage( &storage );
+  if ( cascade && storage && img )
+  {
+	  cvNamedWindow( "video", 1 );
+	  detectFaces( img );
+	  cvWaitKey( 0 );
+	  cvDestroyWindow( "video" );
+  }
+
+  if (img)
+		cvReleaseImage( &img );
+  if (cascade)
+		cvReleaseHaarClassifierCascade( &cascade );
+  if (storage)
+		cvReleaseMemStorage( &storage );
 
   return 0;
 }

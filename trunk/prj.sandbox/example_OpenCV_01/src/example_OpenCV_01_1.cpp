@@ -4,22 +4,35 @@
 
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
+#include <string>
+using namespace std;
 
-int main1(int argc, char **argv) {
-  const char *kDefaultImageName = "..\\..\\gestus\\testdata\\myfingers.jpg";
-  const char *inputImageName = NULL;
+static string testdata( const char* relative_file_name )
+{
+	char buf[1024]={0};
+	GetModuleFileName(NULL, buf, sizeof(buf)-1);
+	return string(buf) + "\\..\\..\\..\\testdata\\" + string(relative_file_name);
+}
+
+int main1(int argc, char **argv) 
+{
+  string kDefaultImageName = testdata("myfingers.jpg");
+  string inputImageName;
   
   if (argc < 2) {
-    printf("Using default image file name %s.\n", kDefaultImageName);
+	  printf("Using default image file name %s.\n", kDefaultImageName.c_str());
     inputImageName = kDefaultImageName;
   } else {
     inputImageName = argv[1];
   }
 
   // Load image.
-  IplImage* img = cvLoadImage(inputImageName);
+  IplImage* img = cvLoadImage(inputImageName.c_str());
   if (img == NULL)
+  {
+	  printf("\nCan't load image '%s'", inputImageName.c_str() ); 
 	  return -1;
+  }
 
   // Prepare windows.
   cvNamedWindow("input image");
