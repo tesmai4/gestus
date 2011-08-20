@@ -52,7 +52,8 @@ int main5( int argc, char** argv )
     cvNamedWindow( "video", CV_WINDOW_AUTOSIZE );
     cvSetMouseCallback( "video", mouseHandler, NULL );
    
-    while( key != 'q' ) {
+    while( key <= 0 )/// 'q' ) 
+	{
         /* get a frame */
         frame = cvQueryFrame( capture );
  
