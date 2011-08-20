@@ -1,0 +1,1 @@
+opencv_..230d - debug opencv 2.3.0 dlls build with msvc++ 2008
