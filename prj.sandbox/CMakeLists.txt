@@ -1,2 +1,2 @@
-ADD_SUBDIRECTORY( example_OpenCV_01 
-)
+ADD_SUBDIRECTORY( example_OpenCV_01 )
+ADD_SUBDIRECTORY( example_OpenCV_02 )
