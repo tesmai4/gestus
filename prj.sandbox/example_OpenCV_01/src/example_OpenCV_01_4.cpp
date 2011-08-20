@@ -4,6 +4,8 @@
 #include "example.h"
 using namespace std;
 
+// playing with cvThreshold() and cvFindContours()
+
 int main4( int argc, char** argv )
 {
     IplImage* src=0;
@@ -19,6 +21,8 @@ int main4( int argc, char** argv )
         CvSeq* contour = 0;
 
         cvThreshold( src, src, 1, 128, CV_THRESH_OTSU ); ///CV_THRESH_BINARY );
+		// http://opencv.willowgarage.com/documentation/miscellaneous_image_transformations.html?highlight=cvthreshold#cvThreshold
+
         cvNamedWindow( "Source", 1 );
         cvShowImage( "Source", src );
 

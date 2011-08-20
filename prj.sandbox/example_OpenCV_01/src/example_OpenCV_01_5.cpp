@@ -130,6 +130,8 @@ void trackObject()
                            WINDOW_WIDTH,
                            WINDOW_HEIGHT ) );
     cvMatchTemplate( frame, tpl, tm, CV_TM_SQDIFF_NORMED );
+	// http://opencv.willowgarage.com/documentation/object_detection.html?highlight=cvmatchtemplate#cvMatchTemplate
+
     cvMinMaxLoc( tm, &minval, &maxval, &minloc, &maxloc, 0 );
     cvResetImageROI( frame );
    
