@@ -13,11 +13,11 @@ string testdata( const char* relative_file_name )
 
 int main(int argc, char **argv) 
 {
-	main1(argc,argv);
-	main2(argc,argv);
-	main3(argc,argv);
-	main4(argc,argv);
-	main5(argc,argv);
+	main1(argc,argv); // starter, load+blur+show
+	main2(argc,argv); // detect face from still foto
+	main3(argc,argv); // detect face from web-cam
+	main4(argc,argv); // cvTreshold(), cvFindContours()
+	main5(argc,argv); // template selection & tracking, mouse response
 
 	return 0;
 }
