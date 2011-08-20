@@ -4,8 +4,9 @@
 
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-#include <string>
+#include "example.h"
 using namespace std;
+
 
 static CvHaarClassifierCascade * cascade=NULL;
 static CvMemStorage            * storage=NULL;

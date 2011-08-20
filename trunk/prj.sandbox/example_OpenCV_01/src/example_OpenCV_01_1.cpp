@@ -4,15 +4,9 @@
 
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-#include <string>
-using namespace std;
 
-static string testdata( const char* relative_file_name )
-{
-	char buf[1024]={0};
-	GetModuleFileName(NULL, buf, sizeof(buf)-1);
-	return string(buf) + "\\..\\..\\..\\testdata\\" + string(relative_file_name);
-}
+#include "example.h"
+using namespace std;
 
 int main1(int argc, char **argv) 
 {
