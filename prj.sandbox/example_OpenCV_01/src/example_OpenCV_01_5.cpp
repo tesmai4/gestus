@@ -49,8 +49,8 @@ int main5( int argc, char** argv )
                         IPL_DEPTH_32F, 1 );
    
     /* create a window and install mouse handler */
-    cvNamedWindow( "video", CV_WINDOW_AUTOSIZE );
-    cvSetMouseCallback( "video", mouseHandler, NULL );
+    cvNamedWindow( "video - click the point to track", CV_WINDOW_AUTOSIZE );
+    cvSetMouseCallback( "video - click the point to track", mouseHandler, NULL );
    
     while( key <= 0 )/// 'q' ) 
 	{
@@ -68,14 +68,14 @@ int main5( int argc, char** argv )
         if( is_tracking ) trackObject();
        
         /* display frame */
-        cvShowImage( "video", frame );
+        cvShowImage( "video - click the point to track", frame );
  
         /* exit if user press 'q' */
         key = cvWaitKey( 1 );
     }
  
     /* free memory */
-    cvDestroyWindow( "video" );
+    cvDestroyWindow( "video - click the point to track" );
     cvReleaseCapture( &capture );
     cvReleaseImage( &tpl );
     cvReleaseImage( &tm );

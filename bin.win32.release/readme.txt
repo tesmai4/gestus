@@ -1,0 +1,1 @@
+opencv_..230 - OpenCV2.3.0 release dlls build with msvc++ 2008
