@@ -9,6 +9,10 @@ SET( SOURCES
 	src/example_OpenCV_03_5.cpp 
 )
 
+SET( HEADERS
+	src/example.h
+)
+
 IF( MSVC )
 #  SET( LIBRARIES cv210 highgui210 cxcore210 )
   
