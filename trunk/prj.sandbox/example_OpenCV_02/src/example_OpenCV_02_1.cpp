@@ -1,4 +1,4 @@
-// example 1 - load image, show, blur, show, wait key, release
+// canny & hough example
 
 #include <cstdio>
 #include <math.h>

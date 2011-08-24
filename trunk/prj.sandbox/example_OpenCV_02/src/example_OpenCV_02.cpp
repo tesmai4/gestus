@@ -13,9 +13,9 @@ string testdata( const char* relative_file_name )
 
 int main(int argc, char **argv) 
 {
-	//main1(argc,argv);
+	//main1(argc,argv); // canny & hough example
 	//main2(argc,argv); // convexHull()
-	main3(argc,argv);
+	main3(argc,argv); // "Advanced" skin detection example
 	//main4(argc,argv);
 	//main5(argc,argv);
 
