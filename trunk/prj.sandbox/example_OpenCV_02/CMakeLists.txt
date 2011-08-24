@@ -1,6 +1,7 @@
 PROJECT( example_OpenCV_02 )
 
-SET( SOURCES 
+SET( SOURCES
+	src/example.h  
 	src/example_OpenCV_02.cpp 
 	src/example_OpenCV_02_1.cpp 
 	src/example_OpenCV_02_2.cpp 
