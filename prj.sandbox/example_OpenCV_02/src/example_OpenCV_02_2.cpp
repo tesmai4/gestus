@@ -1,5 +1,4 @@
-//#include <opencv2/imgproc/imgproc.hpp>
-//#include <opencv2/highgui/highgui.hpp>
+// convexHull example
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <fstream>
