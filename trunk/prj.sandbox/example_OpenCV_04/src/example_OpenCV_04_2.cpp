@@ -3,12 +3,17 @@
 #include <opencv/highgui.h>
 #include <iostream>
 using namespace cv;
-
+double alpha;
+void update_trackbar(int val, void*)
+{
+	alpha = val / 100.0;
+}
 int main2( int argc, char** argv )
 {
 	CvCapture* capture = 0;
 	capture = cvCaptureFromCAM(0);
-	double alpha = 0.5; 
+	alpha = 0.1; 
+	int track_bar_value = 10;
 	Mat cur_frame, hist_frame, mask_gray, mask_binary;
 	
 	if(capture)
@@ -17,6 +22,7 @@ int main2( int argc, char** argv )
 		cvtColor(hist_frame, hist_frame, CV_BGR2GRAY);
 		cvNamedWindow("gray");
 		cvNamedWindow("binary");
+		createTrackbar("alpha", "gray", &track_bar_value, 100, update_trackbar);
 		while(cvWaitKey(10) <= 0)
 		{
 			cur_frame = cvQueryFrame(capture);
