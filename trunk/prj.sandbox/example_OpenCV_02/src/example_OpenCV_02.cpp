@@ -15,9 +15,9 @@ int main(int argc, char **argv)
 {
 	//main1(argc,argv); // canny & hough example
 	//main2(argc,argv); // convexHull()
-	main3(argc,argv); // "Advanced" skin detection example
-	//main4(argc,argv);
-	//main5(argc,argv);
+	//main3(argc,argv); // "Advanced" skin detection example
+	//main4(argc,argv); // moving edges
+	main5(argc,argv);
 
 	return 0;
 }
