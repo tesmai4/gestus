@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
 	//main1(argc,argv);
 	//main2(argc,argv);
-	//main3(argc,argv);
+	main3(argc,argv);
 	//main4(argc,argv);
 	//main5(argc,argv);
 
