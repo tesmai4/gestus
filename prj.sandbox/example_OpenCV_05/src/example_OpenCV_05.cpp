@@ -14,8 +14,8 @@ string testdata( const char* relative_file_name )
 
 int main(int argc, char **argv) 
 {
-	main1(argc,argv);
-	//main2(argc,argv);
+	//main1(argc,argv); // cam2avi
+	main2(argc,argv); // listvideo
 	//main3(argc,argv);
 	//main4(argc,argv);
 	//main5(argc,argv);
