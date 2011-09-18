@@ -1,0 +1,39 @@
+example_OpenCV_01
+	example_OpenCV_01.cpp
+	example_OpenCV_01_1.cpp // starter, load+blur+show
+	example_OpenCV_01_2.cpp // detect face from still photo
+	example_OpenCV_01_3.cpp // detect face from web-cam
+	example_OpenCV_01_4.cpp // cvTreshold(), cvFindContours()
+	example_OpenCV_01_5.cpp // template selection & tracking, mouse response
+
+example_OpenCV_02
+	example_OpenCV_02.cpp
+	example_OpenCV_02_1.cpp // canny & hough example
+	example_OpenCV_02_2.cpp // convexHull()
+	example_OpenCV_02_3.cpp // "Advanced" skin detection example
+	example_OpenCV_02_4.cpp // moving edges
+	example_OpenCV_02_5.cpp
+
+example_OpenCV_03
+	example_OpenCV_03.cpp
+	example_OpenCV_03_1.cpp
+	example_OpenCV_03_2.cpp
+	example_OpenCV_03_3.cpp
+	example_OpenCV_03_4.cpp
+	example_OpenCV_03_5.cpp
+
+example_OpenCV_04
+	example_OpenCV_04.cpp
+	example_OpenCV_04_1.cpp // motion detector - comparing current&previous shots
+	example_OpenCV_04_2.cpp // motion detector with exponential memory
+	example_OpenCV_04_3.cpp
+	example_OpenCV_04_4.cpp
+	example_OpenCV_04_5.cpp
+
+example_OpenCV_05
+	example_OpenCV_05.cpp
+	example_OpenCV_05_1.cpp // cam2avi
+	example_OpenCV_05_2.cpp // listvideo
+	example_OpenCV_05_3.cpp // find and match keypoints
+	example_OpenCV_05_4.cpp
+	example_OpenCV_05_5.cpp
