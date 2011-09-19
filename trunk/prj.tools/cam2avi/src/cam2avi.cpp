@@ -6,8 +6,14 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 
-#include "example.h"
+//#include "example.h"
 using namespace std;
+
+int codec = 
+		/// CV_FOURCC('P','I','M','1'),
+		/// -1, 
+		///CV_FOURCC('D', 'I', 'V', 'X'),
+		CV_FOURCC('X', 'V', 'I', 'D');
 
 void test()
 {
@@ -34,10 +40,7 @@ void test()
 	writer=cvCreateVideoWriter(
 		"c:\\temp\\out2.avi",  // TODO: pass as argument, or, maybe automate name and placement
 		// TODO: experiment with different codecs, select high quality and compact:
-
-		/// CV_FOURCC('P','I','M','1'),
-		-1, ///CV_FOURCC('D', 'I', 'V', 'X'),
-
+		codec,
 		fps,							// TODO: why 25 fps, 640x480, color==true ?? ask camera!
 		cvSize(frameW,frameH),			// ...
 		isColor);						// ...
@@ -59,7 +62,7 @@ void test()
 
 		// Writing the video file:
 		IplImage* img = 0; 
-		int nFrames = 50;
+		int nFrames = 100;
 		
 		cvNamedWindow("testing...", CV_WINDOW_AUTOSIZE);
 
@@ -92,7 +95,7 @@ void test()
 		cvReleaseVideoWriter(&writer);
 }
 
-int main1(int argc, char** argv)
+int main(int argc, char** argv)
 {
     // initialize camera
 	CvCapture* capture = cvCaptureFromCAM( 0 );
@@ -118,10 +121,7 @@ int main1(int argc, char** argv)
 	writer=cvCreateVideoWriter(
 		"c:\\temp\\out.avi",  // TODO: pass as argument, or, maybe automate name and placement
 		// TODO: experiment with different codecs, select high quality and compact:
-
-		/// CV_FOURCC('P','I','M','1'),
-		-1, ///CV_FOURCC('D', 'I', 'V', 'X'),
-
+		codec,
 		fps,							// TODO: why 25 fps, 640x480, color==true ?? ask camera!
 		cvSize(frameW,frameH),			// ...
 		isColor);						// ...
@@ -143,7 +143,7 @@ int main1(int argc, char** argv)
 
 		// Writing the video file:
 		IplImage* img = 0; 
-		int nFrames = 50;
+		int nFrames = 100;
 		
 		cvNamedWindow("capturing...", CV_WINDOW_AUTOSIZE);
 

@@ -119,4 +119,5 @@ ENDIF()
 # -----------------------------------------------------------------------
 # Add project collections to build tree.
 ADD_SUBDIRECTORY( prj.sandbox )
+ADD_SUBDIRECTORY( prj.tools )
 # -----------------------------------------------------------------------
