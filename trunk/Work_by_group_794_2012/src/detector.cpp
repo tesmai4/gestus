@@ -10,7 +10,7 @@
 
 #include "qd.h"
 
-#define camera_in_use false
+#define camera_in_use false//TODO
 
 using namespace cv;
 
@@ -22,7 +22,7 @@ int main( int argc, char** argv)
 
 if( camera_in_use )
 { 
-	//write_file( true );
+	//write_file( true );//I do not know, what to write here. my cam is never in use
 	return(0);
 }
 else
@@ -38,13 +38,16 @@ else
 		
 		waitKey(40);
 	}
-	detectAndDisplay( frame );
+	int result = detectAndDisplay( frame );
 	//int c = waitKey(0);
 	//Capturing block ends. frame  is our capture frame
 	
 	//imshow( "Display Image", frame );
-	imwrite("testresult.jpg", frame);
+	//imwrite("testresult.jpg", frame);
 	
+	FILE* resultfile = fopen( "result.txt", "w");
+	fprintf( resultfile, "%d users detected\n", result );
+	fclose( resultfile );
 	
 	//waitKey(0);
 }
@@ -58,7 +61,7 @@ int detectAndDisplay( Mat frame )
   Mat frame_gray;
 
   
-  String face_cascade_name = "data/haarcascade_frontalface_alt_tree.xml";
+  String face_cascade_name = "data/lbpcascade_frontalface.xml";
   CascadeClassifier face_cascade;
   string window_name = "Capture - Face detection";
   RNG rng(12345);
@@ -72,7 +75,7 @@ int detectAndDisplay( Mat frame )
   //-- Detect faces
   face_cascade.detectMultiScale( frame_gray, faces, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, Size(30, 30) );
   
-  printf(" Detected faces: %d\n", faces.size());
+  //printf(" Detected faces: %d\n", faces.size());
 
   for( int i = 0; i < faces.size(); i++ )
   {
@@ -81,8 +84,7 @@ int detectAndDisplay( Mat frame )
 
   }
   //-- Show what you got
-  imshow( window_name, frame );
-  waitKey( 0 );
-  
-  return(1);
+  //imshow( window_name, frame );
+  //waitKey( 0 );
+  return(faces.size());
  }
