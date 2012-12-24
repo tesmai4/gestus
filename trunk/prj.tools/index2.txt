@@ -1,0 +1,6 @@
+cam2avi - video recorder 
+
+listvideo - video pages browser
+
+gestusCam -finds the face and eyes, and controls the brightness of the monitor (Do not work on all devices)
+//Для управления монитором надо добавить переменную среды STD_WIN, содержащую путь   C:\Program Files\Microsoft SDKs\Windows\v6.0A для Windows
