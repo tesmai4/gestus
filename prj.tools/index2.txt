@@ -1,0 +1,5 @@
+cam2avi - video recorder 
+
+listvideo - video pages browser
+
+gestusCam -finds the face and eyes, and controls the brightness of the monitor (Do not work on all devices)
